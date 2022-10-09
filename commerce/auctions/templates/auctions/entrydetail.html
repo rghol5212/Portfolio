@@ -1,0 +1,91 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+<div>
+
+
+<div name = "entrylisted" class = "entrylistcard" style = "border-style: solid; margin-bottom: 5px;">
+
+    <div>
+    
+    <img src={{entry.image}} alt="{{entry.name_of_listing}}" >
+    
+    </div>
+    <div>
+    Name of Entry Listing:<br>
+        {{entry.name_of_listing}}<br>
+    Current Bid: <br>
+        {{entry.start_price}}<br>
+    Created on:<br>
+        {{entry.created_date}}<br>
+
+
+        {{entry.description}}<br>
+
+    </div>
+{{current_user.id}}
+{{entry.highest_bidder.id}}
+    <div>
+    {% if entry.is_sold == True and entry.highest_bidder.id == current_user.id %}
+        <p>You WON this item!! Congrats!<p>
+
+        
+    {%elif  entry.is_sold == True %}
+           <p>Item is Sold<p>
+    {%else%}
+        <form method="post" action="">
+                {% csrf_token %}
+
+                    <input type="text" name="start_price" placeholder="{{entry.start_price}}">
+
+                    <button type="submit" name="placebidbtn"> Place Bid</button>
+
+                </form>
+
+            {{watched_entry.user_id}}dffff
+            {{current_user.id}}fdfdfdfdf
+            {{watched_entry}}
+                <form method="post" action="">
+                {% csrf_token %}
+                    {% if  watched_entry.user_id == current_user.id%}
+
+                    <button type="submit" name="watchlistaddbtn" value=0> Remove from Watchlist</button>
+                    
+                    {% else %}
+                    <button type="submit" name="watchlistaddbtn" value=1> Add to Watchlist</button>
+                    {%endif%}
+
+                    {% if uploaded_author == True %}
+                    <button type="submit" name="closelisting" value=1> Close the Listing</button>
+                    {% else %}
+
+                    {% endif %}
+                </form>
+    {%endif%}
+
+    </div>
+       
+
+<br>
+<br>
+
+    <h2>Comments:</h2>
+    <br>
+    <form method="post" action="">
+    {% csrf_token %}
+    <input type="text" name="comment_input" placeholder="Write Comment Here" style="padding-top: 20px; border-style: solid">
+
+    </form>
+
+        <div name="comments">
+        {% for  comment in comments %}
+        {{comment.comment}}<br>
+        
+        {% endfor %}
+        </div>
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+<form method="post" action="">
+{% csrf_token %}
+
+<label for="categories_id"> Choose a Category: </label>
+
+<select name="categories_id" id="categories_id" multiple required>
+    <option value=1> General</option>
+    <option value=2> Cars/Trucks</option>
+    <option value=3> Home Furniture</option>
+    <option value=4> Electronics</option>
+    <option value=5> Garden</option>
+    <option value=6> Animals</option>
+</select>
+
+
+<input type="submit" class="button" value="Submit">
+
+</form>
+
+
+<div>
+    {% for entry in entries %}
+<div name = "entrylisted" class = "entrylistcard" style = "border-style: solid; margin-bottom: 5px;">
+        <a href = "{%url "entrydetail" entry.name_of_listing %}">{{entry.name_of_listing}}</a><br>
+        {{entry.start_price}}<br>
+        {{entry.created_date}}<br><br>
+
+
+
+</div>
+    {% endfor %}
+</div>
+{% endblock %}

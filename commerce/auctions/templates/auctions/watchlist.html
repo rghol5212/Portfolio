@@ -1,0 +1,16 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+<div>
+    {% for entry in entries %}
+<div name = "entrylisted" class = "entrylistcard" style = "border-style: solid; margin-bottom: 5px;">
+        <a href = "{%url "entrydetail" entry.name_of_listing %}">{{entry.name_of_listing}}</a><br>
+        {{entry.start_price}}<br>
+        {{entry.created_date}}<br><br>
+
+</div>
+    {% endfor %}
+</div>
+{% endblock %}

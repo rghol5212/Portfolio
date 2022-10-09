@@ -1,0 +1,37 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+<div>
+<form method="post" action="">
+{% csrf_token %}
+
+<input type="text" name="name_of_listing" placeholder="Name of item"><br>
+<input type="text" name="start_price" placeholder="Starting Price"><br>
+<input type="text" name="description" placeholder="Short description of your item"><br>
+
+
+<label for="url">Enter an https:// URL/IMG:</label>
+<input type="url" name="img_url" id="img_url"
+       placeholder="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg"
+       pattern="https://.*" size="30"
+       required><br><br>
+
+<label for="category"> Choose a Category: </label>
+
+<select name="category" id="category" multiple>
+    <option value=1> General</option>
+    <option value=2> Cars/Trucks</option>
+    <option value=3> Home Furniture</option>
+    <option value=4> Electronics</option>
+    <option value=5> Garden</option>
+
+    <option value=6> Animals</option>
+</select>
+
+<input type="submit" class="button" value="Submit">
+
+</form>
+</div>
+{% endblock %}
