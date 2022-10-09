@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+    <style>
+        form {
+        padding: 40px;
+        text-align: center;
+        }
+
+        #input_field {
+        width: 50%;
+        padding: 12px 20px;
+        border-radius: 25px
+        }
+
+        #button {
+            padding: 12px 20px;
+            border-style:hidden;
+        }
+
+        #button:hover {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border-style:solid;
+            border-color: #E8E5E4;
+        }
+
+        .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+        margin-top: 50px;
+
+        }
+
+        .bottom-right {
+        position: absolute;
+        bottom: 8px;
+        right: 460px;
+        color: blue;
+        }
+
+        .container {
+        position: relative;
+        text-align: center;
+        color: white;
+        }
+
+    </style>
+    </head>
+    <body>
+        <div style="text-align: right; padding-right: 50px;">
+        <a href="search_advanced.html" style="padding-right: 10px">Advanced Search</a>
+        <a href="index.html"> Google Search</a>
+        </div>
+
+<div class="container">
+        <div>
+    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo" class="logo">
+    </div>
+
+    <div class="bottom-right">Images</div>
+</div>
+        <form action="http://images.google.com/images">
+            <input type="text" name="q" id="input_field"><br><br>
+            <input type="submit" value="Image Search" id="button" style="visibility: hidden;">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <style>
+            #adv_search{
+                text-align: Left;
+                color: #B60404;
+                font-size: 25px;
+                padding-left: 40px;
+                padding-top: 50px;
+                padding-bottom: 50px;
+
+            }
+
+            #search_form{
+                margin-left:10px;
+                padding-left: 30px;
+            }
+
+            #txt01{
+                font-size: 18px;
+                padding-top: 50px;
+                padding-right: 30px;
+                padding-bottom: 20px;
+            }
+            .search_entry{
+                padding-top: 5px;
+                padding-bottom: 5px;
+                
+            }
+
+            input[type=text]{
+            margin-right: auto;
+            width: 50%;
+            }
+
+            @media only screen and (max-width: 1200px) {
+            .right_dis {
+            display: none;
+                }
+            }
+
+            @media only screen and (max-width: 1200px) {
+            #resize {
+            display: none;
+                }
+            }
+            #resize{
+                padding-left: 630px; 
+                font-size: 13px; 
+                font-weight: bold;
+            }
+
+            .right_dis{
+                position: absolute;
+                right: 150px;
+                width: 200px;
+                height: 120px;
+                font-size: 12px;
+                color: #585858;
+            }
+
+            #submitbtn_button{
+                font-weight: bold; 
+                font-size: 10px; 
+                border-color: #2485C9; 
+                margin-left: 650px; 
+                background-color: #248AD1; 
+                color: white; 
+                border-radius: 5px; 
+                padding-top: 7px; 
+                padding-bottom: 7px; 
+                padding-right: 13px; 
+                padding-left: 13px;  
+                border: 0; 
+                box-shadow: none;
+            }
+
+            #submitbtn_button:hover{
+                background-color: #2382C3;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div style="text-align: right; padding-right: 50px;">
+        <a href="index.html" style="padding-right: 10px"> Google Search</a>
+        <a href="search_image.html"> Google Image Search</a>
+        </div>
+
+        <div id="adv_search">
+        Advanced Search
+        </div>
+
+
+        <div id="search_form">
+            <span id="txt01">
+            Find pages with...
+            </span>
+                <span id="resize" >
+                    To do this in the search box
+                    </span>
+                    <br><br>
+
+                <form action="https://google.com/search">
+                <div class="search_entry">
+                    <span class="text_dis">
+                        <label for="as_q">all these words:</label>
+                    </span>
+                    <span class="input_01">
+                        <input type="text" name="as_q" style="margin-left: 105px; height: 25px;">
+                    </span>
+                    <span class="right_dis">
+                    Type the important words:  tricolor rat terrier
+                    </span>
+                    <br>
+                </div>
+
+                <div class="search_entry">
+                <span class="text_dis">
+                    <label for="as_epq">this exact word or phrase: </label>
+                </span>
+                <span class="input_01">
+                    <input type="text" name="as_epq" style="margin-left: 40px; height: 25px;">
+                </span>
+                <span class="right_dis">
+                Put exact words in quotes:  "rat terrier"
+                </span>
+                <br>
+                </div>
+
+                <div class="search_entry">
+                <span class="text_dis">
+                    <label for="as_oq">any of these words: </label>
+                </span>
+                <span class="input_01">
+                    <input type="text" name="as_oq" style="margin-left: 80px; height: 25px;"> 
+                </span>
+                <span class="right_dis">
+                Type OR between all the words you want:  miniature OR standard
+                </span>
+                <br>
+                </div>
+
+                <div class="search_entry">
+                <span class="text_dis">
+                    <label for="as_eq">none of these words: </label>
+                </span>
+                <span class="input_01">
+                    <input type="text" name="as_eq" style="margin-left: 73px; height: 25px;">
+                </span>
+                <span class="right_dis">
+                Put a minus sign just before words you don't want:  -rodent, -"Jack Russell"
+                </span>
+                <br>
+                </div>
+
+
+
+                <div class="search_entry">
+                <span class="text_dis">
+                    <label for="as_nlo">numbers ranging from: </label>
+                </span>
+                    <input type="text" name="as_nlo" style="margin-left: 58px; height: 25px; width: 23%;">
+                <span class="text_dis">
+                    <label for="as_nhi" style='padding-right: .78%; padding-left: .78%;'>to </label>
+                </span>
+                <span class="input_01">
+                    <input type="text" name="as_nhi" style="height: 25px; width: 23%;">
+                </span>
+                <span class="right_dis">
+                Put 2 periods between the numbers and add a unit of measure: 10..35 lb, $300..$500, 2010..2011
+                </span>
+                <br>
+                </div>
+
+
+
+                <div id="submit_button">
+                    <input type="submit" value="Advanced Search" id="submitbtn_button">
+                </div>
+                </form>
+
+        </div>
+    </body>
+</html>

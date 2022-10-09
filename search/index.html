@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+    <style>
+        form {
+        padding: 40px;
+        text-align: center;
+        }
+
+        #input_field {
+        width: 50%;
+        padding: 12px 20px;
+        border-radius: 25px
+        }
+
+        .button {
+            padding: 12px 20px;
+            border-style:hidden;
+        }
+
+        .button:hover {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border-style:solid;
+            border-color: #E8E5E4;
+        }
+
+        .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+        margin-top: 50px;
+
+        }
+
+    </style>
+    </head>
+    <body>
+
+    
+
+        <div style="text-align: right; padding-right: 50px;">
+        <a href="search_advanced.html" style="padding-right: 10px"> Advanced Search</a>
+        <a href="search_image.html"> Google Image Search</a>
+        </div>
+
+        <div>
+    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo" class="logo">
+    </div>
+        <form action="https://google.com/search">
+            <input type="text" name="q" id="input_field"><br><br>
+            <input type="submit" name ="btnK" value="Google Search" class="button">
+            <input type="submit" name="btnI" value="I am Feeling Lucky" class="button">
+        
+        </form>
+    </body>
+</html>
