@@ -1,0 +1,22 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+
+{% block title %}Following List{% endblock title %}
+
+{%block body %}
+
+<h1>ALL USERS YOU ARE FOLLOWING</h1>
+
+
+<div style=''>
+    {% comment %} Lists the posts in an unordered list {% endcomment %}
+    
+<ul>
+    {% for followed in following %}
+       <li><a href="{% url 'user_profile' followed.user.pk %}">{{ followed.user }}</a> </li>
+</ul>
+
+{% endfor %}
+</div>
+{%endblock%}

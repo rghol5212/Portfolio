@@ -1,0 +1,130 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'network/comments.js' %}">
+    </script>
+{% endblock %}
+<div style='  padding-top: 10px;
+padding-bottom: 10px;
+padding-right: 10px;
+padding-left: 10px;'>
+
+{% block title %}User Social Media Wall{% endblock title %}
+
+{% block body %}
+
+<h1>{{user}} User Profile</h1>
+<div style='padding-bottom:200px'>
+
+</div>
+
+
+{% comment %} Follow or UnFollow {% endcomment %}
+{% comment %} Follow {% endcomment %}
+<form method="POST" action="{% url 'follow' profile.pk %}"  id="follow_form_id">
+    {%csrf_token%}
+    FOLLOW HERE
+    <input type="hidden" name="follow-input" value='True' ></input><br>
+    <button class="btn btn-sm btn-outline-primary" type='submit' id="followsubmit">Follow</button>  
+    </form>
+
+{% comment %} Un-Follow {% endcomment %}
+ <form method="POST" action="{% url 'unfollow' profile.pk %}"  id="unfollow_form_id">
+    {%csrf_token%}
+    UN-FOLLOW
+    <input type="hidden" name="follow-input" value='False'></input><br>
+    <button class="btn btn-sm btn-outline-primary" type='submit' id="followsubmit">Un-Follow</button>  
+    </form>
+
+
+
+
+{% comment %} Create a new post here: {% endcomment %}
+
+<form method="POST" class="user_posts">
+{% csrf_token %}
+
+
+<h3>Create a post</h3>
+<input type="text" id="id_posts" name="posts" placeholder="Create a post here...">
+
+<button type="submit" class="btn btn-success">Post</button>
+</form>
+
+
+<div style=''>
+    {% comment %} Lists the posts in an unordered list {% endcomment %}
+    
+
+    {% for msg_entry in entries %}
+        {% if msg_entry.posts_owner == user %}
+        <div style='background-color: #E2E2E2; border-style: solid'>  
+            <div style='border-bottom: 5px solid'>
+                <h4>{{msg_entry.posts_owner}} on {{msg_entry.date_and_time}} wrote: <h4>
+            </div>
+            <div style='border-bottom: 2px solid'>
+                {{msg_entry.posts}} <br>   
+            </div>
+            {{msg_entry.rating}}
+            <div style='align-content: center'> 
+
+                            <form method="POST" action="{% url 'vote_rating' msg_entry.pk %}"  id="comment-form" style='align-content: right'>
+                                {%csrf_token%}
+                                <input type="hidden" name="vote_input" value='1'></input>
+                                <button class ="" type='submit' id='post_vote_up'> Vote Up!</button>
+                            </form>
+
+                            <form method="POST" action="{% url 'vote_rating' msg_entry.pk %}"  id="comment-form" style='align-content: center'>
+                                {%csrf_token%}
+                                <input type="hidden" name="vote_input" value='-1'></input>
+                                <button class ="" type='submit' id='post_vote_down'> Vote Down!</button>
+                            </form>
+
+            </div>
+            
+        </div>    
+            <br>
+            
+
+        <form method="POST" action="{% url 'comment' msg_entry.pk %}"  id="comment-form">
+        {%csrf_token%}
+        <input type="text" name="comment-input" placeholder="Enter Comment Here"></input><br>
+        <button class="btn btn-sm btn-outline-primary" type='submit' id="commentsubmit">Comment Submit</button>  
+        </form>
+
+    <br>
+
+
+    {% comment %}  comments {% endcomment %}
+            Comments: 
+    <div style='border-style: solid; background-color: #C4C4C4;'>      
+            {% for comment in comments %}
+                {% if msg_entry.pk == comment.post.id %}
+                    <li>{{comment.comment}}</li>
+                    <br>    
+                    
+                {% endif %}     
+        
+            {% endfor %}
+            
+    {% comment %}  comments {% endcomment %}
+    </div>
+    <br>
+    <br>
+    <hr>
+
+
+        {% else %}
+        
+
+
+        {% endif %}
+        
+    {% endfor %}
+
+</div>
+
+<br>
+
+{%endblock%}
