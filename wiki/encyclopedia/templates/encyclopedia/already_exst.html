@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Sorry! Already a thing.
+{% endblock %}
+
+{% block body %}
+    <h1>The entry you entered has already been created.<br>
+     please go back and either edit it, or create a new entry. Thank you.</h1>
+
+ <a href="{% url 'index' %}">Home</a>
+
+{% endblock %} 

@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{entry_title}}
+{% endblock %}
+
+{% block body %}
+    <h1>{{entry_title}}</h1>
+{% comment %} Error here it just renders out the html .. have to figure out how to just apply the html... {% endcomment %}
+    <div>
+
+{{ entries|safe }}
+</div>
+
+    <a href="{% url 'edit' entry_title %}">Edit {{ entry_title }} Click Here</a>
+
+   
+
+{% endblock %} 
