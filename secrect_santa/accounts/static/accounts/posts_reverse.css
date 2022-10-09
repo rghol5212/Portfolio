@@ -1,0 +1,6 @@
+ul {
+  transform: rotate(180deg);
+}
+ul > li {
+  transform: rotate(-180deg);
+}

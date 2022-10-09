@@ -1,0 +1,46 @@
+{% extends "accounts/base.html"%}
+
+{% block title %} admin controls {% endblock %}
+
+
+{%block content %}
+
+<h1> santas list admin </h1>
+
+<p>Secrect Santa List control</p>
+
+{% if user.is_authenticated %}
+    {% comment %} <p> {{user}} Logged In</p> {% endcomment %}
+
+<p>
+
+    <form class="button" id="user_selection" action="" method='post'>
+    {% csrf_token %}
+
+    {% for user in santaslist %}
+    
+    <br><p> {{user.name}} has signed up with an email address: {{user.email}}</p>
+
+    <input type="text" name="{{user.name}}" placeholder="A,B,C"><br>
+
+    {%endfor%}
+
+    <input type="submit" value="submit">
+    </form>
+
+   
+
+    create button that when hit will randomly assign pairs using the names on the santas List
+    the button will make sure NOT to pair the preselected pairs on...
+
+    Email all santas list users there paired partners name and email and description
+</p>
+
+
+{%else%}
+    <p> Not Logged in </p>
+
+{%endif%}
+
+
+{%endblock%}

@@ -1,0 +1,90 @@
+{% load static %}
+
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+{% comment %} #nav bar {% endcomment %}
+    <style type="text/css">
+        .sidenav {
+            height:100%;
+            width:160px;
+            position: fixed;
+            z-index:1;
+            top:0;
+            Left:0;
+            background-color:#111;
+            overflow-x: :hidden;
+            padding-top:20px;
+
+        }
+
+        .sidenav a {
+            padding:6px 8px 6px 16px;
+            text-decoration:none;
+            font-size:25px;
+            color: #818181;
+            display:block;
+            
+        }
+
+        .sidenav a:hover{
+            color:#f1f1f1;
+        }
+
+        .main{
+            margin-Left:160px;
+            padding: 0px 10px;
+        }
+
+
+    </style> 
+
+ 
+
+    <title> {% block title %} Lifter Site {% endblock %} </title>
+    {% block style%}{% endblock %}
+    
+</head>
+
+
+
+<body>
+    <div class="sidenav">
+       {% if user.is_authenticated %}
+            <p>
+            you are logged in
+            <a href="{%url "acc:logout_user" %}"> logout </a>
+            <a href="{%url "acc:index" %}"> Home </a>
+            <a href="{%url "acc:santas_list_signup" %}"> Santas List Signup </a>
+            <a href="{%url "acc:santascontrol" %}"> santas control ADMIN </a>
+
+
+            </p>
+        {%else%}
+            <p>
+            not logged in
+            <a href="{%url "acc:index" %}"> Home </a> 
+            <a href="{%url "acc:login_user" %}"> login </a>
+            <a href="{%url "acc:register" %}"> register </a>
+            </p>
+        {%endif%}
+
+
+    </div>
+
+    <div id="content", name="content", class="main">
+        {% block content %}
+        {% endblock%}
+    </div>
+
+</body>
+</html>

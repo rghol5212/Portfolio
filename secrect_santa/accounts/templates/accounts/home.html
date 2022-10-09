@@ -1,0 +1,21 @@
+{% extends "accounts/base.html"%}
+
+{% block title %} Home {% endblock %}
+
+
+{%block content %}
+
+<h1> Home </h1>
+
+<p>Secrect Santa List</p>
+
+{% if user.is_authenticated %}
+    <p> {{user}} Logged In</p>
+{%else%}
+    <p> Not Logged in </p>
+
+{%endif%}
+
+<p>lorem ipsum dolor sit amet, consectet lorem ipsum dolor sit amet</p>
+
+{%endblock%}

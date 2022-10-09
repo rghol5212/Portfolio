@@ -1,0 +1,25 @@
+{% extends "accounts/base.html"%}
+
+{% block title %} LogIn {% endblock %}
+
+
+{%block content %}
+
+<h1> LogIn </h1>
+
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="username">Enter Username: </label>
+    <input id="username" type="username" name="username" value="username">
+    </br>
+    <label for="password">Enter Password </label>
+    <input id="password" type="password" name="password" value="password">
+    </br>
+    <input type="submit" value="OK">
+</form>
+
+<a href="{%url 'acc:register'%}">Register</a>
+
+{%endblock%}
